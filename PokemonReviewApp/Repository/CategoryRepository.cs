@@ -28,7 +28,7 @@ namespace PokemonReviewApp.Repository
             return _context.Categories.Where(c => c.Id == categoryId).FirstOrDefault();
         }
 
-        public ICollection<Pokemon> GetPokemonByCategory(int categoryId)
+        public ICollection<Pokemon> GetPokemonsByCategory(int categoryId)
         {
             return _context.PokemonCategories.Where(pc => pc.CategoryId == categoryId).Select(c => c.Pokemon).ToList();
         }

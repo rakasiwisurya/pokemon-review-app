@@ -1,7 +1,6 @@
 ﻿using PokemonReviewApp.Data;
 using PokemonReviewApp.Interfaces;
 using PokemonReviewApp.Models;
-using System.Xml.Linq;
 
 namespace PokemonReviewApp.Repository
 {

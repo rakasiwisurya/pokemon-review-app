@@ -6,7 +6,7 @@ namespace PokemonReviewApp.Interfaces
     {
         ICollection<Category> GetCategories();
         Category GetCategory(int categoryId);
-        ICollection<Pokemon> GetPokemonByCategory(int categoryId);
+        ICollection<Pokemon> GetPokemonsByCategory(int categoryId);
         bool CategoryExists(int categoryId);
     }
 }

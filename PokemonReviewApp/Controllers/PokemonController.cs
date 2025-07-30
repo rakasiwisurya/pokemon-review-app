@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PokemonReviewApp.Dto;
 using PokemonReviewApp.Interfaces;
-using PokemonReviewApp.Models;
 
 namespace PokemonReviewApp.Controllers
 {
@@ -20,7 +19,7 @@ namespace PokemonReviewApp.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<PokemonDto>))]
         public IActionResult GetPokemons()
         {
             var pokemons = _mapper.Map<List<PokemonDto>>(_pokemonRepository.GetPokemons());
@@ -31,7 +30,7 @@ namespace PokemonReviewApp.Controllers
         }
 
         [HttpGet("{pokemonId}")]
-        [ProducesResponseType(200, Type = typeof(Pokemon))]
+        [ProducesResponseType(200, Type = typeof(PokemonDto))]
         [ProducesResponseType(400)]
         public IActionResult GetPokemon(int pokemonId)
         {
@@ -45,7 +44,7 @@ namespace PokemonReviewApp.Controllers
         }
 
         [HttpGet("{pokemonId}/rating")]
-        [ProducesResponseType(200, Type = typeof(Pokemon))]
+        [ProducesResponseType(200, Type = typeof(PokemonDto))]
         [ProducesResponseType(400)]
         public IActionResult GetPokemonRating (int pokemonId)
         {

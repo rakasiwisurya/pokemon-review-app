@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PokemonReviewApp.Dto;
 using PokemonReviewApp.Interfaces;
-using PokemonReviewApp.Models;
-using PokemonReviewApp.Repository;
 
 namespace PokemonReviewApp.Controllers
 {
@@ -21,8 +19,8 @@ namespace PokemonReviewApp.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Country>))]
-        public IActionResult GetCountrys()
+        [ProducesResponseType(200, Type = typeof(IEnumerable<CountryDto>))]
+        public IActionResult GetCountries()
         {
             var countries = _mapper.Map<List<CountryDto>>(_countryRepository.GetCountries());
 
@@ -32,7 +30,7 @@ namespace PokemonReviewApp.Controllers
         }
 
         [HttpGet("{countryId}")]
-        [ProducesResponseType(200, Type = typeof(Country))]
+        [ProducesResponseType(200, Type = typeof(CountryDto))]
         [ProducesResponseType(400)]
         public IActionResult GetCountry(int countryId)
         {
@@ -45,8 +43,8 @@ namespace PokemonReviewApp.Controllers
             return Ok(country);
         }
 
-        [HttpGet("/owners/{ownerId}")]
-        [ProducesResponseType(200, Type = typeof(Country))]
+        [HttpGet("owners/{ownerId}")]
+        [ProducesResponseType(200, Type = typeof(CountryDto))]
         [ProducesResponseType(400)]
         public IActionResult GetCountryOfAnOwner(int ownerId)
         {
