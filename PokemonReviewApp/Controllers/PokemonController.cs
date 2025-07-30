@@ -31,7 +31,7 @@ namespace PokemonReviewApp.Controllers
         }
 
         [HttpGet("{pokemonId}")]
-        [ProducesResponseType(200, Type =typeof(Pokemon))]
+        [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(400)]
         public IActionResult GetPokemon(int pokemonId)
         {
